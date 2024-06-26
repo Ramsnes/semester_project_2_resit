@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/dist/css/index.css" />
+    <title>Profile</title>
+  </head>
+  <body>
+    <div id="navbar"></div>
+
+    <div class="container">
+      <div class="col">
+        <div class="col-md-4">
+          <img id="avatar-image" src="" alt="Avatar" class="img-fluid" />
+        </div>
+
+        <div class="col-md-8">
+          <h2>Profile</h2>
+          <form id="update-avatar">
+            <div class="form-group">
+              <label for="avatarUrl">Avatar URL</label>
+              <input
+                required
+                type="text"
+                class="form-control"
+                id="avatar-url"
+                name="avatarUrl"
+                placeholder="Enter avatar URL"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Update Avatar</button>
+          </form>
+          <div id="credits-container"></div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./profile.js"></script>
+    <script type="module" src="../nav-bar/navbar.js"></script>
+    <script type="module" src="../utils.js"></script>
+  </body>
+</html>
