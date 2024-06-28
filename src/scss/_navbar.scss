@@ -1,5 +1,9 @@
 @import "../../node_modules/bootstrap/scss/navbar";
 
+.navbar a {
+  margin-left: 20px;
+}
+
 nav a,
 .nav-link,
 #logout-button {
