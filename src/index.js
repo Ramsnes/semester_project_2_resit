@@ -35,14 +35,17 @@ function renderListingsResults(listings) {
     }
 
     listItemContainer.innerHTML = `
-            <p>${listing.title}</p>
-            <p>${listing.description}</p>
-            <p>Bids: ${listing?._count?.bids || 0}</p>
-            ${
-              listing?.media
-                ? `<img src="${listing.media}" alt="Listing image" class="img-fluid" />`
-                : ""
-            }
+    <div class"card" style="width: 18rem;">
+    ${
+      listing?.media
+        ? `<img src="${listing.media}" alt="Listing image" class="img-fluid" />`
+        : ""
+    }
+    <div class="body">
+            <h5 class="card-title">${listing.title}</h5>
+            <p class="card-text">${listing.description}</p>
+            <p class="card-text">Bids: ${listing?._count?.bids || 0}</p>
+            </div>
     `;
     listItem.appendChild(listItemContainer);
     container.appendChild(listItem);

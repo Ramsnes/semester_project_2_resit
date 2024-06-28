@@ -44,8 +44,10 @@ async function submitBid(id, amount) {
 function renderListing(listing) {
   const bidsContainer = document.querySelector("#bids-container");
   const listingContainer = document.querySelector("#listing-container");
+  listingContainer.innerHTML = ""; // Clear previous listings
   const image = listing?.media.length > 0 ? listing.media[0] : null;
 
+  // Search render
   const listingHtml = `
         <h1>${listing.title}</h1>
         <p>${listing.description ?? ""}</p>
@@ -54,6 +56,7 @@ function renderListing(listing) {
             ? `<img src="${image}" alt="Listing image" class="img-fluid" style="height: 300px; object-fit: contain;" />`
             : ""
         }
+
   `;
 
   for (const bid of listing?.bids) {
