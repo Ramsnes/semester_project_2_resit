@@ -47,8 +47,9 @@ function renderListing(listing) {
   listingContainer.innerHTML = ""; // Clear previous listings
   const image = listing?.media.length > 0 ? listing.media[0] : null;
 
-  // Search render
+  // idPage render
   const listingHtml = `
+  <div class="card" style="width: 20rem;">
         <h1>${listing.title}</h1>
         <p>${listing.description ?? ""}</p>
         ${
@@ -56,15 +57,17 @@ function renderListing(listing) {
             ? `<img src="${image}" alt="Listing image" class="img-fluid" style="height: 300px; object-fit: contain;" />`
             : ""
         }
-
-  `;
+        </div>
+        `;
 
   for (const bid of listing?.bids) {
     const bidElement = document.createElement("div");
     const bidHtml = `
-            <p>Bid Amount: ${bid.amount}</p>
-            <p>Bidder Name: ${bid.bidderName}</p>
-    `;
+    <div class="card" style="width: 18rem;">
+          <p>Bid Amount: ${bid.amount}</p>
+          <p>Bidder Name: ${bid.bidderName}</p>
+          </div>
+          `;
     bidElement.innerHTML = bidHtml;
     bidsContainer.appendChild(bidElement);
   }

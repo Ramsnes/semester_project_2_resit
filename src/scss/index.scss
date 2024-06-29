@@ -2,6 +2,7 @@
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 @import "variables";
 @import "navbar";
+@import "listing";
 
 .container {
   padding: 10px;
@@ -9,4 +10,13 @@
 
 .form-control {
   width: auto !important;
+}
+
+.container > h1,
+.input-group-append {
+  margin: 20px 0;
+}
+
+.infoPara {
+  font-size: 0.9rem;
 }
