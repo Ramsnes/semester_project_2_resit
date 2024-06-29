@@ -15,16 +15,17 @@
   <body>
     <div id="navbar"></div>
 
-    <div class="container">
+    <div class="container profile-container">
+      <h2 class="mt-2 mb-4 text-center">Profile</h2>
       <div class="col">
-        <div class="col-md-4">
+        <div class="col-md-4 d-flex justify-content-center">
           <img id="avatar-image" src="" alt="Avatar" class="img-fluid" />
         </div>
 
-        <div class="col-md-8">
-          <h2>Profile</h2>
+        <div class="col-md-8 d-flex flex-column">
+          <div id="credits-container"></div>
           <form id="update-avatar">
-            <div class="form-group">
+            <div class="form-group mb-2">
               <label for="avatarUrl">Avatar URL</label>
               <input
                 required
@@ -37,7 +38,6 @@
             </div>
             <button type="submit" class="btn btn-primary">Update Avatar</button>
           </form>
-          <div id="credits-container"></div>
         </div>
       </div>
     </div>
