@@ -4,13 +4,15 @@
 @import "navbar";
 @import "listing";
 @import "profile";
+@import "create-listing";
 
 .container {
   padding: 10px;
 }
 
 .form-control {
-  width: auto !important;
+  // width: auto !important;
+  width: 300px !important;
 }
 
 .container > h1,
