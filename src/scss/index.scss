@@ -24,6 +24,10 @@
   font-size: 0.9rem;
 }
 
+#listings-list {
+  width: 30rem !important;
+}
+
 .list-group-item {
   display: flex;
   justify-content: center;
@@ -31,4 +35,12 @@
 
 .list-group-item > * {
   contain: content;
+}
+
+.list-group-item .card {
+  background: #fffff5;
+}
+
+.list-group-item a .body {
+  margin: 20px;
 }

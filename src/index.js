@@ -35,7 +35,7 @@ function renderListingsResults(listings) {
     }
 
     listItemContainer.innerHTML = `
-    <div class"card" style="width: 18rem;">
+    <div class="card" style="width: 18rem;">
     ${
       listing?.media
         ? `<img src="${listing.media}" alt="Listing image" class="img-fluid" />`
