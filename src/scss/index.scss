@@ -9,7 +9,7 @@
 
 .container,
 .container-fluid {
-  padding: 10px;
+  padding: 20px;
 }
 
 .form-control {
@@ -26,7 +26,16 @@
 }
 
 #listings-list {
-  width: 30rem !important;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(300px, 1fr)
+  ); // Responsive grid layout
+  gap: 10px;
+}
+
+.list-group {
+  border: none !important;
 }
 
 .list-group-item {
@@ -44,4 +53,8 @@
 
 .list-group-item a .body {
   margin: 20px;
+}
+
+.card img {
+  border-radius: 3px;
 }

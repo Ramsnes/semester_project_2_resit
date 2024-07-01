@@ -19,6 +19,9 @@ function renderListingsResults(listings) {
   const isLoggedIn = !!localStorage.getItem("accessToken");
   const container = document.querySelector("#listings-list");
 
+  // Resets old results - plus ables user to search again
+  container.innerHTML = "";
+
   for (const listing of listings) {
     let listItem = document.createElement("li");
     listItem.setAttribute("class", "list-group-item");
@@ -35,7 +38,7 @@ function renderListingsResults(listings) {
     }
 
     listItemContainer.innerHTML = `
-    <div class="card" style="width: 18rem;">
+    <div class="card container-fluid" style="width: 18rem;">
     ${
       listing?.media
         ? `<img src="${listing.media}" alt="Listing image" class="img-fluid" />`
