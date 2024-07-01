@@ -5,13 +5,13 @@
 @import "listing";
 @import "profile";
 @import "create-listing";
+@import "login";
 
 .container {
   padding: 10px;
 }
 
 .form-control {
-  // width: auto !important;
   width: 300px !important;
 }
 
@@ -38,7 +38,7 @@
 }
 
 .list-group-item .card {
-  background: #fffff5;
+  background: #f7f7f775;
 }
 
 .list-group-item a .body {
