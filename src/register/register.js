@@ -27,7 +27,7 @@ form.addEventListener("submit", async (event) => {
 
   const regex = /^[a-zA-Z0-9._%+-]+@stud\.noroff\.no$/;
   if (!regex.test(user.email)) {
-    return alert("Please provide a valid noroff student email");
+    return alert("Email must contain @stud.noroff.no");
   }
 
   try {

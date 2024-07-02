@@ -27,6 +27,8 @@
             name="email"
             placeholder="Enter your email"
             required
+            pattern="@stud.noroff.no"
+            title="Email must contain @stud.noroff.no"
           />
         </div>
         <div class="form-group">
@@ -37,6 +39,8 @@
             name="name"
             placeholder="Enter your username"
             required
+            maxlength="20"
+            title="Maximum length of 20 characters on username"
           />
         </div>
         <div class="form-group">
@@ -47,6 +51,9 @@
             name="password"
             placeholder="Enter your password"
             required
+            minlength="8"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            title="Minimum length of 8 characters on password"
           />
         </div>
         <div class="d-flex flex-col align-items-center gap-3">
