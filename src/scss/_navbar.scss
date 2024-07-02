@@ -1,18 +1,14 @@
 @import "../../node_modules/bootstrap/scss/navbar";
 
-.navbar a {
-  padding: 0 30px;
-}
-
 nav a,
 .nav-link,
 #logout-button {
-  color: $navWht;
+  color: $navWhtHvr;
   text-decoration-line: none;
 }
 
 nav a:hover,
 .nav-link:hover,
 #logout-button:hover {
-  color: $navWhtHvr;
+  color: $navWht;
 }

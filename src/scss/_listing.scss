@@ -1,24 +1,5 @@
-#listing-container {
-  align-items: center;
-}
-
-#listing-container > * {
+#listing-container .card {
   padding: 20px;
-}
-
-#submit-bid-form {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#submit-bid-form > * {
-  padding: 10px;
-}
-
-#bids-container {
-  align-items: center;
 }
 
 #bids-container div > div {
