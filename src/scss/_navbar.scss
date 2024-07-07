@@ -12,3 +12,9 @@ nav a:hover,
 #logout-button:hover {
   color: $navWht;
 }
+
+#navbar p,
+a {
+  padding: 0 1rem;
+  color: $navWhtHvr;
+}
