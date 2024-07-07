@@ -1,7 +1,7 @@
 async function search(data) {
   try {
     const response = await fetch(
-      `https://api.noroff.dev/api/v1/auction/listings?_tag=${data}&_active=true`,
+      `https://api.noroff.dev/api/v1/auction/listings?_tag=${data?.toLowerCase()}&_active=true`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -13,6 +13,15 @@ async function search(data) {
   } catch (error) {
     console.error(error);
   }
+}
+
+function renderNoResults() {
+  const container = document.querySelector("#listings-list");
+  container.innerHTML = "";
+
+  const noResultsText = document.createElement("p");
+  noResultsText.textContent = "No listings found.";
+  container.appendChild(noResultsText);
 }
 
 function renderListingsResults(listings) {
@@ -73,6 +82,8 @@ form.addEventListener("submit", async (event) => {
   const result = await response.json();
 
   if (result && result?.length > 0) {
-    renderListingsResults(result);
+    return renderListingsResults(result);
+  } else {
+    return renderNoResults();
   }
 });

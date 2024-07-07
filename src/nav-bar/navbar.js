@@ -1,3 +1,5 @@
+import { getCredits } from "../utils.js";
+
 let navBarUrl = "nav-bar/nav-bar.html";
 const url = window.location.pathname.includes("index.html")
   ? navBarUrl
@@ -78,8 +80,25 @@ function checkIfLoggedIn() {
   }
 }
 
+async function setAvailableCredits() {
+  const accessToken = localStorage.getItem("accessToken");
+
+  if (!accessToken) {
+    return;
+  }
+
+  const creditsResponse = await getCredits();
+
+  if (creditsResponse.ok) {
+    const data = await creditsResponse.json();
+    const creditsContainer = document.getElementById("available-credits");
+    creditsContainer.innerHTML = `<p style="color: #e0e0e0; margin-bottom: 0px;">Available credits: ${data?.credits}</p>`;
+  }
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   loadNavbar();
+  await setAvailableCredits();
 
   // Check if the user is logged in every second
   setInterval(checkIfLoggedIn, 1000);

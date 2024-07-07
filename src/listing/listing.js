@@ -1,6 +1,7 @@
 import { getCredits } from "../utils.js";
 
 var totalCredits = null;
+var currentHighestBid = 0;
 
 async function getListingById(id) {
   try {
@@ -60,14 +61,25 @@ function renderListing(listing) {
         </div>
         `;
 
-  for (const bid of listing?.bids) {
+  const sortedBids = listing?.bids.sort(
+    (a, b) => new Date(b.created).getTime() - new Date(a.created).getTime()
+  );
+
+  for (const bid of sortedBids) {
+    if (bid.amount > currentHighestBid) {
+      currentHighestBid = bid.amount;
+    }
+
     const bidElement = document.createElement("div");
     const bidHtml = `
     <div class="card" style="width: 18rem;">
-          <p>Bid Amount: ${bid.amount}</p>
-          <p>Bidder Name: ${bid.bidderName}</p>
-          </div>
-          `;
+      <p>Bid Amount: ${bid.amount}</p>
+      <p>Bidder Name: ${bid.bidderName}</p>
+      <p>Created At: ${new Intl.DateTimeFormat("nb-NO").format(
+        new Date(bid.created)
+      )}</p>
+    </div>
+    `;
     bidElement.innerHTML = bidHtml;
     bidsContainer.appendChild(bidElement);
   }
@@ -117,6 +129,13 @@ form.addEventListener("submit", async (event) => {
   const urlParams = new URLSearchParams(window.location.search);
   const id = urlParams.get("id");
 
+  if (+amount <= currentHighestBid) {
+    return alert(
+      "You need to bid higher than the current highest bid which is " +
+        currentHighestBid
+    );
+  }
+
   if (+amount > totalCredits) {
     return alert("You do not have enough credits to submit this bid");
   }
@@ -125,6 +144,8 @@ form.addEventListener("submit", async (event) => {
 
   if (!response.ok) {
     return alert("Something went wrong submitting bid");
+  } else {
+    alert("Bid submitted successfully");
   }
 
   location.reload();

@@ -27,7 +27,7 @@
             name="email"
             placeholder="Enter your email"
             required
-            pattern="@stud.noroff.no"
+            pattern="^[a-zA-Z0-9._%+-]+@stud\.noroff\.no$"
             title="Email must contain @stud.noroff.no"
           />
         </div>
@@ -53,7 +53,7 @@
             required
             minlength="8"
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-            title="Minimum length of 8 characters on password"
+            title="Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, and one digit."
           />
         </div>
         <div class="d-flex flex-row justify-content-center mt-3 gap-3">

@@ -28,12 +28,8 @@ form.addEventListener("submit", async (event) => {
   try {
     const response = await login(data);
 
-    if (response.status === 401) {
-      alert("Wrong email or password");
-    }
-
-    if (!response.ok) {
-      alert("Something went wrong");
+    if (response.status === 401 || !response.ok) {
+      return alert("Wrong email or password");
     }
 
     const result = await response.json();
