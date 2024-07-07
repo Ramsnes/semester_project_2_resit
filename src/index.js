@@ -41,7 +41,7 @@ function renderListingsResults(listings) {
     // If we are not logged in we should not navigate to the listing so we wrap the listing in a div
     if (isLoggedIn) {
       listItemContainer = document.createElement("a");
-      listItemContainer.href = `./listing/listing.html?id=${listing.id}`;
+      listItemContainer.href = `./src/listing/listing.html?id=${listing.id}`;
     } else {
       listItemContainer = document.createElement("div");
     }

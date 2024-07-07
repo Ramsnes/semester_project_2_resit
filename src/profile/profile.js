@@ -46,8 +46,6 @@ form.addEventListener("submit", async (event) => {
   const data = await response.json();
   const updatedUrl = data.avatar;
 
-  console.log(data);
-
   localStorage.setItem("avatarUrl", updatedUrl);
 
   const avatarImage = document.getElementById("avatar-image");
@@ -72,5 +70,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     `;
 
   const avatarImage = document.getElementById("avatar-image");
-  avatarImage.src = localStorage.getItem("avatarUrl");
+  const avatarUrl = localStorage.getItem("avatarUrl");
+
+  if (avatarUrl && avatarUrl !== "null") {
+    avatarImage.src = avatarUrl;
+  }
 });

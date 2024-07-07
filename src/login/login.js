@@ -38,7 +38,7 @@ form.addEventListener("submit", async (event) => {
     localStorage.setItem("name", result.name);
     localStorage.setItem("avatarUrl", result?.avatar);
 
-    window.location.href = "/src/index.html";
+    window.location.href = "/index.html";
   } catch (error) {
     console.error(error);
   }
@@ -49,6 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // If you already are logge din, redirect to the home page
   if (accessToken) {
-    window.location.href = "/src/index.html";
+    window.location.href = "/index.html";
   }
 });

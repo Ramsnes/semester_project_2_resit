@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "sass src/scss/index.scss:src/dist/css/index.css",
-    "watch": "sass --watch src/scss:src/dist/css/ & live-server"
+    "build": "sass src/scss/index.scss:dist/css/index.css",
+    "watch": "sass --watch src/scss:dist/css/ & live-server"
   },
   "keywords": [],
   "author": "Morten Ramfjord",

@@ -2,11 +2,11 @@ import { getCredits } from "../utils.js";
 
 let navBarUrl = "nav-bar/nav-bar.html";
 const url = window.location.pathname.includes("index.html")
-  ? navBarUrl
+  ? "src/" + navBarUrl
   : "../" + navBarUrl;
 
 const getUrl = (url) => {
-  return window.location.pathname.includes("index.html") ? url : "../" + url;
+  return window.location.pathname.includes("index.html") ? url : "src/" + url;
 };
 
 const isLoggedIn = !!localStorage.getItem("accessToken");
@@ -36,7 +36,7 @@ function loadNavbar() {
           // Navigate to the home page
           window.location.href = window.location.pathname.includes("index.html")
             ? "index.html"
-            : "../index.html";
+            : "../src/index.html";
         });
       }
 
