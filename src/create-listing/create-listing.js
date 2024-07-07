@@ -65,7 +65,7 @@ form.addEventListener("submit", async (event) => {
     }
 
     alert("Listing created successfully");
-    window.location.href = "/src/index.html";
+    window.location.href = "/";
   } catch (error) {
     console.error(error);
   }

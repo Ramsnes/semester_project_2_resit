@@ -87,3 +87,16 @@ form.addEventListener("submit", async (event) => {
     return renderNoResults();
   }
 });
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const isLoggedIn = !!localStorage.getItem("accessToken");
+
+  const createListingLink = document.getElementById("create-listing-link");
+
+  // Hide create listing link if user is not logged in
+  if (isLoggedIn) {
+    createListingLink.style.visibility = "visible";
+  } else {
+    createListingLink.style.visibility = "hidden";
+  }
+});

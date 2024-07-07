@@ -1,12 +1,12 @@
 import { getCredits } from "../utils.js";
 
 let navBarUrl = "nav-bar/nav-bar.html";
-const url = window.location.pathname.includes("index.html")
-  ? "src/" + navBarUrl
-  : "../" + navBarUrl;
+
+const url =
+  window.location.pathname === "/" ? "src/" + navBarUrl : "../" + navBarUrl;
 
 const getUrl = (url) => {
-  return window.location.pathname.includes("index.html") ? url : "src/" + url;
+  return window.location.pathname === "/" ? "src/" + url : "../" + url;
 };
 
 const isLoggedIn = !!localStorage.getItem("accessToken");
@@ -27,16 +27,12 @@ function loadNavbar() {
         )}">Welcome, ${username}</a>`;
         usernameContainer.setAttribute("class", "");
         logoutButton.setAttribute("class", "btn btn-link");
-
         // Add an onclick event listener to the logoutButton
         logoutButton.addEventListener("click", function () {
           // Clear the localStorage
           localStorage.clear();
-
           // Navigate to the home page
-          window.location.href = window.location.pathname.includes("index.html")
-            ? "index.html"
-            : "../src/index.html";
+          window.location.href = "/";
         });
       }
 
@@ -47,7 +43,7 @@ function loadNavbar() {
       }
 
       // Change the href if user already is on the home page
-      if (window.location.pathname.includes("index.html")) {
+      if (window.location.pathname === "/") {
         const homeLink = document.getElementById("home-link");
         homeLink.setAttribute("href", "");
 
@@ -69,7 +65,7 @@ function checkIfLoggedIn() {
   // If we are on pages that dont require authorization, we dont need to check if the user is logged in
   if (
     window.location.pathname.includes("login.html") ||
-    window.location.pathname.includes("index.html")
+    window.location.pathname === "/"
   ) {
     return;
   }
@@ -99,7 +95,6 @@ async function setAvailableCredits() {
 document.addEventListener("DOMContentLoaded", async () => {
   loadNavbar();
   await setAvailableCredits();
-
   // Check if the user is logged in every second
   setInterval(checkIfLoggedIn, 1000);
 });

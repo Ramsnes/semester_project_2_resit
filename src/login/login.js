@@ -38,7 +38,7 @@ form.addEventListener("submit", async (event) => {
     localStorage.setItem("name", result.name);
     localStorage.setItem("avatarUrl", result?.avatar);
 
-    window.location.href = "/index.html";
+    window.location.href = "/";
   } catch (error) {
     console.error(error);
   }
