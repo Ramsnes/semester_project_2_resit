@@ -5,17 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "sass src/scss/index.scss:dist/css/index.css",
-    "watch": "sass --watch src/scss:dist/css & live-server"
+    "build": "sass src/scss/index.scss:src/dist/css/index.css",
+    "watch": "sass --watch src/scss:src/dist & live-server"
   },
   "keywords": [],
   "author": "Morten Ramfjord",
   "license": "ISC",
-  "dependencies": {
-    "bootstrap": "^5.3.3"
-  },
   "devDependencies": {
     "live-server": "^1.2.2",
     "sass": "^1.69.5"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3"
   }
 }
