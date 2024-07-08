@@ -1,5 +1,9 @@
 @import "../../node_modules/bootstrap/scss/navbar";
 
+#navbar #navbar {
+  padding: 1rem !important;
+}
+
 nav a,
 .nav-link,
 #logout-button {
