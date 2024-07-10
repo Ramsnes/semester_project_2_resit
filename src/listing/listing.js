@@ -46,18 +46,15 @@ function renderListing(listing) {
   const bidsContainer = document.querySelector("#bids-container");
   const listingContainer = document.querySelector("#listing-container");
   listingContainer.innerHTML = ""; // Clear previous listings
-  const image = listing?.media.length > 0 ? listing.media[0] : null;
+  const image =
+    listing?.media.length > 0 ? listing.media[0] : "../../images/no_media.jpeg";
 
   // idPage render
   const listingHtml = `
   <div class="card" style="width: 20rem;">
         <h1>${listing.title}</h1>
         <p>${listing.description ?? ""}</p>
-        ${
-          image
-            ? `<img src="${image}" alt="Listing image" class="img-fluid" style="height: 300px; object-fit: contain;" />`
-            : ""
-        }
+        <img src="${image}" alt="Listing image" class="img-fluid" style="height: 300px; object-fit: contain;" />
         </div>
         `;
 
@@ -87,14 +84,6 @@ function renderListing(listing) {
   listingContainer.innerHTML = listingHtml;
 }
 
-function renderCredits(credits) {
-  const creditsContainer = document.querySelector("#credits-container");
-  const creditsHtml = `
-            <p>Total credits: ${credits}</p>
-    `;
-  creditsContainer.innerHTML = creditsHtml;
-}
-
 document.addEventListener("DOMContentLoaded", async () => {
   const urlParams = new URLSearchParams(window.location.search);
   const id = urlParams.get("id");
@@ -115,7 +104,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (creditsResponse.ok) {
     const data = await creditsResponse.json();
     totalCredits = data?.credits;
-    renderCredits(data?.credits);
   }
 });
 

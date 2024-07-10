@@ -31,6 +31,13 @@ function renderListingsResults(listings) {
   // Resets old results - plus ables user to search again
   container.innerHTML = "";
 
+  const filteredListings = listings.filter(
+    (listing) => listing.media.length > 0
+  );
+
+  // Use the filteredListings array instaed of listings if we only want to
+  // display listings with image
+
   for (const listing of listings) {
     let listItem = document.createElement("li");
     listItem.setAttribute("class", "list-group-item");
@@ -46,13 +53,11 @@ function renderListingsResults(listings) {
       listItemContainer = document.createElement("div");
     }
 
+    const imageUrl = listing.media?.[0] ?? "images/no_media.jpeg";
+
     listItemContainer.innerHTML = `
     <div class="card container-fluid" style="width: 18rem;">
-    ${
-      listing?.media
-        ? `<img src="${listing.media}" alt="Listing image" class="img-fluid" />`
-        : ""
-    }
+    <img src="${imageUrl}" alt="Listing image" class="img-fluid" />
     <div class="body">
             <h5 class="card-title">${listing.title}</h5>
             <p class="card-text">${listing.description}</p>
